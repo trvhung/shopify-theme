@@ -224,219 +224,750 @@
     </div>
   </div>
 </section>
-<section class="py-16 md:py-24 bg-white">
-    <div class="container mx-auto px-4 md:px-6">
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<section class="py-16 md:py-24 bg-white"> <div class="container mx-auto px-4 md:px-6">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16">
         <div class="flex items-center gap-8 md:gap-12 text-2xl md:text-3xl font-bold mb-6 md:mb-0">
-          <button class="transition-colors text-gray-400 hover:text-gray-600 pb-2 border-b-2 border-transparent hover:border-gray-300">
-            What's hot
-          </button>
-          <button class="transition-colors text-gray-400 hover:text-gray-600 pb-2 border-b-2 border-transparent hover:border-gray-300">
-            Best sellers
-          </button>
-          <button class="transition-colors text-black pb-2 border-b-2 border-black">
-            Sale
-          </button>
+            <button class="transition-colors text-gray-400 hover:text-gray-600 pb-2 border-b-2 border-transparent hover:border-gray-300"> What's hot </button>
+            <button class="transition-colors text-gray-400 hover:text-gray-600 pb-2 border-b-2 border-transparent hover:border-gray-300"> Best sellers </button>
+            <button class="transition-colors text-black pb-2 border-b-2 border-black"> Sale </button>
         </div>
-        <button class="inline-flex items-center gap-2 text-sm font-semibold border-b border-black pb-1 hover:opacity-70 group/link">
-          Shop All Products
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover/link:translate-x-1 transition-transform">
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
+        <button class="inline-flex items-center gap-2 text-sm font-semibold border-b border-black pb-1 hover:opacity-70 group/link"> Shop All Products <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover/link:translate-x-1 transition-transform">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+            </svg>
         </button>
-      </div>
-      
-      <!-- Products Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 mb-24">
-  
-  <!-- Product Item 1 -->
-  <div class="group flex flex-col">
-    <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
-      <img 
-        alt="Sunscreen lotion" 
-        class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
-        src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80"
-        loading="lazy"
-      >
-      <div class="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-orange-500 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-lg rounded-full">
-        -25%
-      </div>
-      
     </div>
-    
-    <div class="flex flex-col space-y-3 px-1">
-      <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2">
-        Sunscreen Lotion SPF 50+
-      </h3>
-      
-      <div class="flex items-center gap-2">
-        <div class="flex text-yellow-400 gap-0.5">
-  {% for i in (1..5) %}
-    <span class="svg-wrapper w-3.5 h-3.5">
-      {{ 'star.svg' | inline_asset_content }}
-    </span>
-  {% endfor %}
-</div>
-
-        <span class="text-xs text-gray-500">(32 reviews)</span>
-      </div>
-      
-      <div class="flex items-center gap-3 pt-1">
-        <p class="text-lg font-bold text-red-600">$29.00</p>
-        <p class="text-sm text-gray-400 line-through">$39.00</p>
-        <span class="ml-auto text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded">
-          Save $10
-        </span>
-      </div>
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 mb-24">
+        <!-- Product Item 1 -->
+        <div class="group flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
+                <img alt="Sunscreen lotion" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" loading="lazy">
+                <div class="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-orange-500 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-lg rounded-full"> -25% </div>
+            </div>
+            <div class="flex flex-col space-y-3 px-1">
+                <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2"> Sunscreen Lotion SPF 50+ </h3>
+                <div class="flex items-center gap-2">
+                    <div class="flex text-yellow-400 gap-0.5"> {% for i in (1..5) %} <span class="svg-wrapper w-3.5 h-3.5">
+                            {{ 'star.svg' | inline_asset_content }}
+                        </span> {% endfor %} </div>
+                    <span class="text-xs text-gray-500">(32 reviews)</span>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <p class="text-lg font-bold text-red-600">$29.00</p>
+                    <p class="text-sm text-gray-400 line-through">$39.00</p>
+                    <span class="ml-auto text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded"> Save $10 </span>
+                </div>
+            </div>
+        </div>
+        <!-- Product Item 2 -->
+        <div class="group flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
+                <img alt="Rejuvenating night oil" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1618331835717-801e976710b2?auto=format&fit=crop&w=600&q=80" loading="lazy">
+            </div>
+            <div class="flex flex-col space-y-3 px-1">
+                <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2"> Rejuvenating Night Oil </h3>
+                <div class="flex items-center gap-2">
+                    <div class="flex text-yellow-400 gap-0.5"> {% for i in (1..5) %} <span class="svg-wrapper w-3.5 h-3.5">
+                            {{ 'star.svg' | inline_asset_content }}
+                        </span> {% endfor %} </div>
+                    <span class="text-xs text-gray-500">(15 reviews)</span>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <p class="text-lg font-bold text-gray-900">$79.00</p>
+                    <span class="ml-auto text-xs font-semibold text-[#CBB676] bg-amber-50 px-2 py-1 rounded"> Best Seller </span>
+                </div>
+            </div>
+        </div>
+        <!-- Product Item 3 -->
+        <div class="group flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
+                <img alt="Dream bio retinol" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?auto=format&fit=crop&w=600&q=80" loading="lazy">
+                <div class="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-500 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-lg rounded-full"> -30% </div>
+            </div>
+            <div class="flex flex-col space-y-3 px-1">
+                <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2"> Dream Bio-Retinol Serum </h3>
+                <div class="flex items-center gap-2">
+                    <div class="flex text-yellow-400 gap-0.5"> {% for i in (1..5) %} <span class="svg-wrapper w-3.5 h-3.5">
+                            {{ 'star.svg' | inline_asset_content }}
+                        </span> {% endfor %} </div>
+                    <span class="text-xs text-gray-500">(8 reviews)</span>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <p class="text-lg font-bold text-red-600">$39.00</p>
+                    <p class="text-sm text-gray-400 line-through">$56.00</p>
+                    <span class="ml-auto text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded"> Popular </span>
+                </div>
+            </div>
+        </div>
+        <!-- Product Item 4 -->
+        <div class="group flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
+                <img alt="Protective day oil" class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&w=600&q=80" loading="lazy">
+            </div>
+            <div class="flex flex-col space-y-3 px-1">
+                <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2"> Protective Day Oil with SPF </h3>
+                <div class="flex items-center gap-2">
+                    <div class="flex text-yellow-400 gap-0.5"> {% for i in (1..5) %} <span class="svg-wrapper w-3.5 h-3.5">
+                            {{ 'star.svg' | inline_asset_content }}
+                        </span> {% endfor %} </div>
+                    <span class="text-xs text-gray-500">(55 reviews)</span>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <p class="text-lg font-bold text-gray-900">$99.00</p>
+                    <span class="ml-auto text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded"> Premium </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  
-  <!-- Product Item 2 -->
-  <div class="group flex flex-col">
-    <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
-      <img 
-        alt="Rejuvenating night oil" 
-        class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
-        src="https://images.unsplash.com/photo-1618331835717-801e976710b2?auto=format&fit=crop&w=600&q=80"
-        loading="lazy"
-      >
-      
-    </div>
-    
-    <div class="flex flex-col space-y-3 px-1">
-      <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2">
-        Rejuvenating Night Oil
-      </h3>
-      
-      <div class="flex items-center gap-2">
-        <div class="flex text-yellow-400 gap-0.5">
-  {% for i in (1..5) %}
-    <span class="svg-wrapper w-3.5 h-3.5">
-      {{ 'star.svg' | inline_asset_content }}
-    </span>
-  {% endfor %}
-</div>
-
-        <span class="text-xs text-gray-500">(15 reviews)</span>
-      </div>
-      
-      <div class="flex items-center gap-3 pt-1">
-        <p class="text-lg font-bold text-gray-900">$79.00</p>
-        <span class="ml-auto text-xs font-semibold text-[#CBB676] bg-amber-50 px-2 py-1 rounded">
-          Best Seller
-        </span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Product Item 3 -->
-  <div class="group flex flex-col">
-    <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
-      <img 
-        alt="Dream bio retinol" 
-        class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
-        src="https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?auto=format&fit=crop&w=600&q=80"
-        loading="lazy"
-      >
-      <div class="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-500 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-lg rounded-full">
-        -30%
-      </div>
-      
-    </div>
-    
-    <div class="flex flex-col space-y-3 px-1">
-      <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2">
-        Dream Bio-Retinol Serum
-      </h3>
-      
-      <div class="flex items-center gap-2">
-        <div class="flex text-yellow-400 gap-0.5">
-  {% for i in (1..5) %}
-    <span class="svg-wrapper w-3.5 h-3.5">
-      {{ 'star.svg' | inline_asset_content }}
-    </span>
-  {% endfor %}
-</div>
-
-        <span class="text-xs text-gray-500">(8 reviews)</span>
-      </div>
-      
-      <div class="flex items-center gap-3 pt-1">
-        <p class="text-lg font-bold text-red-600">$39.00</p>
-        <p class="text-sm text-gray-400 line-through">$56.00</p>
-        <span class="ml-auto text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded">
-          Popular
-        </span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Product Item 4 -->
-  <div class="group flex flex-col">
-    <div class="relative overflow-hidden rounded-2xl bg-gray-50 aspect-square mb-6">
-      <img 
-        alt="Protective day oil" 
-        class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
-        src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&w=600&q=80"
-        loading="lazy"
-      >
-      
-    </div>
-    
-    <div class="flex flex-col space-y-3 px-1">
-      <h3 class="text-[16px] font-semibold text-gray-900 group-hover:text-[#CBB676] transition-colors duration-300 cursor-pointer line-clamp-2">
-        Protective Day Oil with SPF
-      </h3>
-      
-      <div class="flex items-center gap-2">
-        <div class="flex text-yellow-400 gap-0.5">
-  {% for i in (1..5) %}
-    <span class="svg-wrapper w-3.5 h-3.5">
-      {{ 'star.svg' | inline_asset_content }}
-    </span>
-  {% endfor %}
-</div>
-
-        <span class="text-xs text-gray-500">(55 reviews)</span>
-      </div>
-      
-      <div class="flex items-center gap-3 pt-1">
-        <p class="text-lg font-bold text-gray-900">$99.00</p>
-        <span class="ml-auto text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">
-          Premium
-        </span>
-      </div>
-    </div>
-  </div>
-  
-</div>
-      
-      <!-- Brand Statement -->
-      <div class="py-12 md:py-20">
+    <!-- Brand Statement -->
+    <div class="py-12 md:py-20">
         <div class="flex flex-col items-center justify-center text-center">
-          <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-tight text-[#111]">
-            <span>Make you look</span>
-            <div class="h-14 w-28 md:h-20 md:w-40 rounded-full overflow-hidden bg-pink-100 relative">
-              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="" src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&amp;fit=crop&amp;w=400&amp;q=80">
+            <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-tight text-[#111]">
+                <span>Make you look</span>
+                <div class="h-14 w-28 md:h-20 md:w-40 rounded-full overflow-hidden bg-pink-100 relative">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="" src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&amp;fit=crop&amp;w=400&amp;q=80">
+                </div>
+                <span>and</span>
             </div>
-            <span>and</span>
+            <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-tight text-[#111] mt-4 md:mt-8">
+                <span>feel glowy</span>
+                <div class="h-14 w-28 md:h-20 md:w-40 rounded-full overflow-hidden bg-orange-100 relative">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="" src="https://images.unsplash.com/photo-1556228578-8d89487c8843?auto=format&amp;fit=crop&amp;w=400&amp;q=80">
+                </div>
+                <span>and healthy</span>
+                <div class="h-14 w-28 md:h-20 md:w-40 rounded-full overflow-hidden bg-yellow-100 relative">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="" src="https://images.unsplash.com/photo-1515377905703-c4788e51af93?auto=format&amp;fit=crop&amp;w=400&amp;q=80">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Featured Collection Section -->
+
+
+<!-- Video Gallery Section -->
+<section class="py-20 md:py-28 bg-white">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#CBB676] mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-circle">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="10 8 16 12 10 16 10 8"></polygon>
+        </svg>
+        Customer Stories
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">See Our Products in Action</h2>
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Discover how real customers are transforming their skincare routines with our premium products.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      
+      <!-- Video Card 1 -->
+      <div class="group relative rounded-3xl overflow-hidden aspect-[9/16] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img 
+          alt="Customer Video" 
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+          loading="lazy"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent group-hover:from-black/70 transition-colors"></div>
+        
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play fill-white text-white ml-1">
+              <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+            </svg>
           </div>
-          <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-tight text-[#111] mt-4 md:mt-8">
-            <span>feel glowy</span>
-            <div class="h-14 w-28 md:h-20 md:w-40 rounded-full overflow-hidden bg-orange-100 relative">
-              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="" src="https://images.unsplash.com/photo-1556228578-8d89487c8843?auto=format&amp;fit=crop&amp;w=400&amp;q=80">
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=100&q=80" 
+                    alt="Customer" 
+                    class="w-full h-full object-cover"
+                  >
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Sarah M.</p>
+                  <p class="text-gray-300 text-xs">@sarahbeauty</p>
+                </div>
+              </div>
+              <p class="text-white text-[15px] font-medium leading-tight drop-shadow-lg">
+                "Ohhhh Lem, oh Lem, oh Lem... This serum changed my skincare game!"
+              </p>
             </div>
-            <span>and healthy</span>
-            <div class="h-14 w-28 md:h-20 md:w-40 rounded-full overflow-hidden bg-yellow-100 relative">
-              <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt="" src="https://images.unsplash.com/photo-1515377905703-c4788e51af93?auto=format&amp;fit=crop&amp;w=400&amp;q=80">
+            <div class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center group/icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music text-white group-hover/icon:scale-110 transition-transform">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
             </div>
           </div>
         </div>
+        
+        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full">
+          2:45
+        </div>
+      </div>
+      
+      <!-- Video Card 2 -->
+      <div class="group relative rounded-3xl overflow-hidden aspect-[9/16] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img 
+          alt="Customer Video" 
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80"
+          loading="lazy"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent group-hover:from-black/70 transition-colors"></div>
+        
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play fill-white text-white ml-1">
+              <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" 
+                    alt="Customer" 
+                    class="w-full h-full object-cover"
+                  >
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Alex J.</p>
+                  <p class="text-gray-300 text-xs">@alexskincare</p>
+                </div>
+              </div>
+              <p class="text-white text-[15px] font-medium leading-tight drop-shadow-lg">
+                "It is beautiful, it is wonderful - my skin has never felt this good!"
+              </p>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center group/icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music text-white group-hover/icon:scale-110 transition-transform">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full">
+          1:30
+        </div>
+      </div>
+      
+      <!-- Video Card 3 -->
+      <div class="group relative rounded-3xl overflow-hidden aspect-[9/16] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img 
+          alt="Customer Video" 
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+          src="https://images.unsplash.com/photo-1629235925325-132d74db1c1c?auto=format&fit=crop&w=600&q=80"
+          loading="lazy"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent group-hover:from-black/70 transition-colors"></div>
+        
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play fill-white text-white ml-1">
+              <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" 
+                    alt="Customer" 
+                    class="w-full h-full object-cover"
+                  >
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Michael T.</p>
+                  <p class="text-gray-300 text-xs">@miketransform</p>
+                </div>
+              </div>
+              <p class="text-white text-[15px] font-medium leading-tight drop-shadow-lg">
+                "It's super strong yet gentle on my sensitive skin. Highly recommended!"
+              </p>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center group/icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music text-white group-hover/icon:scale-110 transition-transform">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full">
+          3:15
+        </div>
+      </div>
+      
+      <!-- Video Card 4 -->
+      <div class="group relative rounded-3xl overflow-hidden aspect-[9/16] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+        <img 
+          alt="Customer Video" 
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"
+          loading="lazy"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent group-hover:from-black/70 transition-colors"></div>
+        
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play fill-white text-white ml-1">
+              <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" 
+                    alt="Customer" 
+                    class="w-full h-full object-cover"
+                  >
+                </div>
+                <div>
+                  <p class="text-white text-sm font-semibold">Emma L.</p>
+                  <p class="text-gray-300 text-xs">@emmaglow</p>
+                </div>
+              </div>
+              <p class="text-white text-[15px] font-medium leading-tight drop-shadow-lg">
+                "I saw visible results after just 5 minutes... This product is magical!"
+              </p>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center group/icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music text-white group-hover/icon:scale-110 transition-transform">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full">
+          4:20
+        </div>
       </div>
     </div>
-  </section>
+    
+    <div class="text-center mt-12">
+      <button class="inline-flex items-center gap-3 text-gray-900 font-semibold text-[15px] border-b border-gray-900 pb-1 hover:opacity-70 transition-opacity group/link">
+        View All Reviews
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover/link:translate-x-1 transition-transform">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- Reviews Section -->
+<section class="py-20 bg-gradient-to-r from-pink-300 via-orange-200 to-yellow-200 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-32 h-16 bg-[#FFF9F3] z-20" style="mask-image: radial-gradient(circle at 10px 10px, transparent 10px, black 11px); mask-position: -10px -10px; mask-size: 20px 20px;"></div>
+    <div class="absolute bottom-0 right-0 w-32 h-16 bg-[#FFF9F3] z-20" style="mask-image: radial-gradient(circle at 10px 10px, transparent 10px, black 11px); mask-position: -10px -10px; mask-size: 20px 20px; transform: rotate(180deg);"></div>
+    
+    <!-- Animated star -->
+    <div class="absolute top-6 right-6 md:top-10 md:right-20 animate-spin-slow hidden md:block z-20">
+        <div class="relative w-24 h-24 md:w-28 md:h-28 bg-black rounded-full flex items-center justify-center border-4 border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-white fill-white md:w-10 md:h-10">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+            </svg>
+            <svg viewBox="0 0 100 100" class="absolute w-full h-full text-white">
+                <path id="textPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent"></path>
+                <text class="text-[10px] font-bold uppercase tracking-[0.22em] fill-white">
+                    <textPath href="#textPath" startOffset="0%">Reviews - Reviews - Reviews - Reviews -</textPath>
+                </text>
+            </svg>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-white drop-shadow-md mb-4">Loved by Thousands</h2>
+            <p class="text-white text-xl font-medium opacity-90">Real reviews from our happy customers</p>
+        </div>
+        
+        <!-- Reviews Marquee -->
+        <div class="flex flex-col gap-6 overflow-hidden">
+            <div class="flex gap-6 animate-marquee" id="marquee1">
+                <!-- Review cards will be generated by JavaScript -->
+            </div>
+            <div class="flex gap-6 animate-marquee-reverse" id="marquee2">
+                <!-- Duplicate review cards for seamless animation -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Posts Section -->
+<section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">Latest Post</h2>
+                <p class="text-gray-500">Discover the most trending news.</p>
+            </div>
+            <button id="viewAllBtn" class="hidden md:block px-6 py-2 bg-black text-white text-sm font-bold rounded-md hover:bg-gray-800 transition-colors">View All</button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="postsContainer">
+            <!-- Blog posts will be generated by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom animations */
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    
+    @keyframes marquee-reverse {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes spin-slow {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    .animate-marquee {
+        animation: marquee 30s linear infinite;
+        animation-play-state: running;
+    }
+    
+    .animate-marquee-reverse {
+        animation: marquee-reverse 30s linear infinite;
+        animation-play-state: running;
+    }
+    
+    .animate-spin-slow {
+        animation: spin-slow 10s linear infinite;
+    }
+    
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* Custom styles */
+    .review-card {
+        min-width: 300px;
+        max-width: 300px;
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .review-card:hover {
+        transform: scale(1.05);
+    }
+    
+    .blog-card {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .blog-card img {
+        transition: transform 0.5s ease;
+    }
+    
+    .blog-card:hover img {
+        transform: scale(1.1);
+    }
+    
+    .blog-card h3 {
+        transition: color 0.3s ease;
+    }
+    
+    .blog-card:hover h3 {
+        color: #d97706; /* yellow-600 */
+    }
+    
+    .blog-card button {
+        transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover button {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<script>
+    // Reviews data
+    const reviews = [
+        {
+            name: "Sarah J.",
+            comment: "Absolutely love the quality! Will buy again.",
+            stars: 5
+        },
+        {
+            name: "Michael T.",
+            comment: "Fast shipping and amazing customer service.",
+            stars: 5
+        },
+        {
+            name: "Emily R.",
+            comment: "The texture is so smooth and lightweight.",
+            stars: 5
+        },
+        {
+            name: "David K.",
+            comment: "Perfect for my sensitive skin.",
+            stars: 4
+        },
+        {
+            name: "Jessica L.",
+            comment: "Packaging is eco-friendly and beautiful.",
+            stars: 5
+        },
+        {
+            name: "Ryan P.",
+            comment: "Highly recommend to everyone!",
+            stars: 5
+        },
+        {
+            name: "Chloe M.",
+            comment: "Best purchase I've made this year.",
+            stars: 5
+        },
+        {
+            name: "Alex B.",
+            comment: "Exceeded all my expectations!",
+            stars: 5
+        }
+    ];
+
+    // Blog posts data
+    const blogPosts = [
+        {
+            date: "18 May 2024",
+            title: "Trendsetter Chronicles: Unveiling the Latest in Fashion",
+            image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=400&h=400&q=80",
+            category: "Fashion"
+        },
+        {
+            date: "15 Aug 2024",
+            title: "Runway Rundown: Decoding Fashion Week's Best Looks",
+            image: "https://images.unsplash.com/photo-1529139574466-a302d2053990?auto=format&fit=crop&w=400&h=400&q=80",
+            category: "Fashion Week"
+        },
+        {
+            date: "22 Sep 2024",
+            title: "Sustainable Style: The Future of Eco-Friendly Fashion",
+            image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&h=400&q=80",
+            category: "Sustainability"
+        },
+        {
+            date: "05 Oct 2024",
+            title: "Minimalist Magic: How to Build a Capsule Wardrobe",
+            image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=400&h=400&q=80",
+            category: "Style Tips"
+        }
+    ];
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+        renderReviews();
+        renderBlogPosts();
+        setupEventListeners();
+    });
+
+    // Render reviews
+    function renderReviews() {
+        const marquee1 = document.getElementById('marquee1');
+        const marquee2 = document.getElementById('marquee2');
+        
+        // Clear existing content
+        marquee1.innerHTML = '';
+        marquee2.innerHTML = '';
+        
+        // Create review cards for first marquee
+        reviews.forEach(review => {
+            const reviewCard = createReviewCard(review);
+            marquee1.appendChild(reviewCard.cloneNode(true));
+            marquee2.appendChild(reviewCard.cloneNode(true));
+        });
+        
+        // Duplicate for seamless animation
+        reviews.forEach(review => {
+            const reviewCard = createReviewCard(review);
+            marquee1.appendChild(reviewCard.cloneNode(true));
+            marquee2.appendChild(reviewCard.cloneNode(true));
+        });
+    }
+
+    // Create a review card element
+    function createReviewCard(review) {
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        
+        // Generate stars HTML
+        let starsHTML = '';
+        for (let i = 0; i < 5; i++) {
+            if (i < review.stars) {
+                starsHTML += `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star">
+                        <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                `;
+            } else {
+                starsHTML += `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-gray-300">
+                        <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                    </svg>
+                `;
+            }
+        }
+        
+        card.innerHTML = `
+            <div class="flex justify-between items-start">
+                <div class="flex gap-1 text-yellow-400">
+                    ${starsHTML}
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote text-gray-300">
+                    <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                    <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path>
+                </svg>
+            </div>
+            <p class="text-gray-700 text-sm leading-relaxed">"${review.comment}"</p>
+            <div class="mt-auto pt-2 border-t border-gray-100">
+                <p class="text-xs font-bold text-gray-900 uppercase tracking-wider">${review.name}</p>
+            </div>
+        `;
+        
+        return card;
+    }
+
+    // Render blog posts
+    function renderBlogPosts() {
+        const postsContainer = document.getElementById('postsContainer');
+        
+        blogPosts.forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.className = 'blog-card group';
+            
+            postCard.innerHTML = `
+                <div class="w-full aspect-square rounded-2xl overflow-hidden relative mb-4">
+                    <img alt="${post.title}" class="w-full h-full object-cover" src="${post.image}">
+                </div>
+                <div class="flex flex-col flex-1">
+                    <span class="self-start bg-black text-white text-[10px] font-bold px-2 py-1 uppercase rounded-sm mb-2">${post.date}</span>
+                    <h3 class="text-lg font-bold leading-tight mb-4 line-clamp-2">${post.title}</h3>
+                    <button class="read-more-btn mt-auto flex items-center text-xs font-bold uppercase tracking-wider border border-gray-300 rounded-full px-4 py-2 self-start" data-title="${post.title}">
+                        Read More 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            postsContainer.appendChild(postCard);
+        });
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+        // View All button for blog posts
+        const viewAllBtn = document.getElementById('viewAllBtn');
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', function() {
+                alert('View All Blog Posts clicked! In a real application, this would navigate to the blog page.');
+            });
+        }
+        
+        // Read More buttons for blog posts
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.read-more-btn')) {
+                const btn = e.target.closest('.read-more-btn');
+                const postTitle = btn.getAttribute('data-title');
+                alert(`Reading more about: "${postTitle}"`);
+            }
+        });
+        
+        // Pause marquee on hover
+        const marqueeContainers = document.querySelectorAll('.animate-marquee, .animate-marquee-reverse');
+        marqueeContainers.forEach(container => {
+            container.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+            });
+            
+            container.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+            });
+        });
+        
+        // Blog card click handlers
+        const blogCards = document.querySelectorAll('.blog-card');
+        blogCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Only trigger if not clicking on the Read More button
+                if (!e.target.closest('.read-more-btn')) {
+                    const title = this.querySelector('h3').textContent;
+                    alert(`Opening blog post: "${title}"`);
+                }
+            });
+        });
+    }
+</script>
   <section class="relative overflow-hidden group">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full">
       <div class="relative aspect-square overflow-hidden border-r border-white/10 last:border-none">

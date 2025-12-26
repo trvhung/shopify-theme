@@ -1,135 +1,367 @@
-<header>
-  <h2 class="header__title">
-    {{ shop.name | link_to: routes.root_url }}
-  </h2>
+{% comment %}
+  Header template phù hợp với Shopify và phong cách Modern Cozy Decor
+  Giữ nguyên các icon và tích hợp với hệ thống Shopify
+{% endcomment %}
 
-  <div class="header__menu">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
-
-  <div class="header__icons">
-    {% if shop.customer_accounts_enabled %}
-      {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-    {% endif %}
-
-    <a href="{{ routes.cart_url }}">
-      {% if cart.item_count > 0 %}
-        <sup>{{ cart.item_count }}</sup>
-      {% endif %}
-
-      {{ 'icon-cart.svg' | inline_asset_content }}
-    </a>
+<header class="site-header sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100 transition-all duration-300">
+  <div class="container mx-auto px-4 md:px-6 h-[60px] lg:h-auto lg:py-5 relative">
+    
+    <!-- Mobile Header -->
+    <div class="flex lg:hidden items-center justify-between h-full">
+      <!-- Left: Menu & Search -->
+      <div class="flex items-center gap-1">
+        <button class="header__mobile-menu p-2.5 hover:bg-amber-50 rounded-lg text-gray-700 transition-colors" 
+                aria-label="{{ 'general.accessibility.menu' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+            <path d="M4 5h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 19h16"></path>
+          </svg>
+        </button>
+        
+        <button class="header__search-toggle p-2.5 hover:bg-amber-50 rounded-lg text-gray-700 transition-colors" 
+                aria-label="{{ 'general.search.search' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+            <path d="m21 21-4.34-4.34"></path>
+            <circle cx="11" cy="11" r="8"></circle>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Center: Logo -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <a href="{{ routes.root_url }}" class="header__logo flex items-center gap-2 group">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | image_url: width: 100 }}" 
+                 alt="{{ shop.name }}" 
+                 class="w-9 h-9 object-contain group-hover:scale-105 transition-transform">
+          {% else %}
+            <div class="w-9 h-9 bg-gradient-to-br from-amber-400 to-amber-600 rounded-tl-xl rounded-br-xl group-hover:scale-105 transition-transform"></div>
+            <span class="text-2xl font-bold tracking-tight text-gray-900">{{ shop.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+      
+      <!-- Right: User & Cart -->
+      <div class="flex items-center gap-1">
+        {% if shop.customer_accounts_enabled %}
+          <a href="{{ routes.account_url }}" class="p-2.5 hover:bg-amber-50 rounded-lg text-gray-700 transition-colors" 
+             aria-label="{{ 'general.accessibility.account' | t }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+        {% endif %}
+        
+        <a href="{{ routes.cart_url }}" class="header__cart relative p-2.5 hover:bg-amber-50 rounded-lg text-gray-700 transition-colors" 
+           aria-label="{{ 'general.accessibility.cart' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag">
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+            <path d="M3.103 6.034h17.794"></path>
+            <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path>
+          </svg>
+          
+          {% if cart.item_count > 0 %}
+            <span class="header__cart-count absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-[10px] text-white font-bold shadow-sm">
+              {{ cart.item_count }}
+            </span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+    
+    <!-- Desktop Header -->
+    <div class="hidden lg:flex items-center justify-between">
+      <!-- Left: Logo -->
+      <div class="flex items-center gap-4">
+        <a href="{{ routes.root_url }}" class="header__logo flex items-center gap-2 group">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | image_url: width: 120 }}" 
+                 alt="{{ shop.name }}" 
+                 class="w-10 h-10 object-contain group-hover:scale-105 transition-transform">
+          {% else %}
+            <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-tl-xl rounded-br-xl group-hover:scale-105 transition-transform shadow-sm"></div>
+            <span class="text-2xl font-bold tracking-tight text-gray-900">{{ shop.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+      
+      <!-- Center: Main Navigation -->
+      <nav class="header__menu flex items-center space-x-10 text-sm font-medium">
+        {% for link in section.settings.menu.links %}
+          {% if link.links.size > 0 %}
+            <div class="header__dropdown relative group">
+              <button class="header__dropdown-toggle flex items-center py-2 text-gray-700 hover:text-amber-600 transition-colors group-hover:text-amber-600" 
+                      aria-expanded="false"
+                      aria-controls="dropdown-{{ forloop.index }}">
+                {{ link.title }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down ml-1 group-hover:rotate-180 transition-transform">
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </button>
+              
+              <div id="dropdown-{{ forloop.index }}" 
+                   class="header__dropdown-menu absolute top-full left-1/2 transform -translate-x-1/2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 mt-2 z-10">
+                <div class="{% if link.levels == 2 %}grid grid-cols-2 p-3 gap-2{% else %}py-2{% endif %}">
+                  {% for childlink in link.links %}
+                    {% if childlink.links.size > 0 %}
+                      <!-- Nested dropdown (level 2) -->
+                      <div class="mb-2">
+                        <p class="px-4 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">{{ childlink.title }}</p>
+                        {% for grandchildlink in childlink.links %}
+                          <a href="{{ grandchildlink.url }}" 
+                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded">
+                            {{ grandchildlink.title }}
+                          </a>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                      <a href="{{ childlink.url }}" 
+                         class="{% if link.levels == 2 %}px-3 py-2{% else %}block px-4 py-2{% endif %} text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-600 rounded">
+                        {{ childlink.title }}
+                      </a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <a href="{{ link.url }}" 
+               class="header__menu-item py-2 text-gray-700 hover:text-amber-600 transition-colors {% if link.active %}text-amber-600 font-semibold{% endif %}">
+              {{ link.title }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+      
+      <!-- Right: Actions & Icons -->
+      <div class="header__icons flex items-center gap-6">
+        <!-- Search -->
+        <button class="header__search-toggle relative p-2 hover:text-amber-600 transition-colors group/search" 
+                aria-label="{{ 'general.search.search' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+            <path d="m21 21-4.34-4.34"></path>
+            <circle cx="11" cy="11" r="8"></circle>
+          </svg>
+          <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover/search:opacity-100 transition-opacity"></div>
+        </button>
+        
+        <!-- Wishlist (nếu có ứng dụng wishlist) -->
+        {% if settings.wishlist_enabled %}
+          <a href="{{ routes.account_url }}/wishlist" 
+             class="header__wishlist relative p-2 hover:text-amber-600 transition-colors group/wishlist"
+             aria-label="{{ 'general.wishlist' | t }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
+              <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path>
+            </svg>
+            <span class="header__wishlist-count absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-[10px] text-white font-bold shadow-sm">
+              {% if customer %}
+                {% comment %} Thay thế bằng logic wishlist count thực tế {% endcomment %}
+                3
+              {% endif %}
+            </span>
+            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover/wishlist:opacity-100 transition-opacity"></div>
+          </a>
+        {% endif %}
+        
+        <!-- Account (nếu bật) -->
+        {% if shop.customer_accounts_enabled %}
+          <div class="hidden md:flex text-sm border-r border-gray-200 pr-6 text-gray-600">
+            {% if customer %}
+              <a href="{{ routes.account_url }}" class="hover:text-amber-600 transition-colors">
+                {{ 'general.account.account' | t }}
+              </a>
+              <span class="mx-2">/</span>
+              <a href="{{ routes.account_logout_url }}" class="hover:text-amber-600 transition-colors">
+                {{ 'general.account.logout' | t }}
+              </a>
+            {% else %}
+              <a href="{{ routes.account_login_url }}" class="hover:text-amber-600 transition-colors">
+                {{ 'general.account.login' | t }}
+              </a>
+              <span class="mx-2">/</span>
+              <a href="{{ routes.account_register_url }}" class="hover:text-amber-600 transition-colors">
+                {{ 'general.account.register' | t }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+        
+        <!-- Cart -->
+        <a href="{{ routes.cart_url }}" 
+           class="header__cart relative p-2 hover:text-amber-600 transition-colors group/cart"
+           aria-label="{{ 'general.accessibility.cart' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag">
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+            <path d="M3.103 6.034h17.794"></path>
+            <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path>
+          </svg>
+          
+          {% if cart.item_count > 0 %}
+            <span class="header__cart-count absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-[10px] text-white font-bold shadow-sm">
+              {{ cart.item_count }}
+            </span>
+          {% endif %}
+          
+          <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover/cart:opacity-100 transition-opacity"></div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Search Bar (hidden by default) -->
+    <div class="header__search-bar hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg py-4 px-6">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="max-w-3xl mx-auto">
+        <div class="relative">
+          <input type="search"
+                 name="q"
+                 placeholder="{{ 'general.search.placeholder' | t }}"
+                 aria-label="{{ 'general.search.placeholder' | t }}"
+                 class="w-full py-3 pl-12 pr-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none">
+          <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21 21-4.34-4.34"></path>
+            <circle cx="11" cy="11" r="8"></circle>
+          </svg>
+          <button type="submit" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-amber-600">
+            {{ 'general.search.search' | t }}
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </header>
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-<nav class="relative bg-gray-800">
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div class="relative flex h-16 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
-        <button type="button" command="--toggle" commandfor="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
-          <span class="absolute -inset-0.5"></span>
-          <span class="sr-only">Open main menu</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex shrink-0 items-center">
-          <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="h-8 w-auto" />
-        </div>
-        <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-            <a href="#" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
-          </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" class="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
-          <span class="absolute -inset-1.5"></span>
-          <span class="sr-only">View notifications</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-            <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
 
-        <!-- Profile dropdown -->
-        <el-dropdown class="relative ml-3">
-          <button class="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">Open user menu</span>
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
-          </button>
-
-          <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Sign out</a>
-          </el-menu>
-        </el-dropdown>
-      </div>
-    </div>
-  </div>
-
-  <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
-    <div class="space-y-1 px-2 pt-2 pb-3">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-      <a href="#" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
-    </div>
-  </el-disclosure>
-</nav>
-
-{% stylesheet %}
-  header {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header a {
-    position: relative;
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  header a sup {
-    position: absolute;
-    left: 100%;
-    overflow: hidden;
-    max-width: var(--page-margin);
-  }
-  header svg {
-    width: 2rem;
-  }
-  header .header__menu,
-  header .header__icons {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
-
+{% comment %}
+  Schema để cấu hình trong Shopify Admin
+{% endcomment %}
 {% schema %}
 {
-  "name": "t:general.header",
+  "name": "Header",
+  "class": "section-header",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Custom logo width",
+      "info": "Set the maximum logo width"
+    },
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:labels.menu"
+      "default": "main-menu",
+      "label": "Main menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "default": true,
+      "label": "Show search icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_wishlist",
+      "default": true,
+      "label": "Show wishlist icon",
+      "info": "Requires wishlist app"
     }
   ]
 }
 {% endschema %}
+
+<style>
+  /* Additional CSS for Shopify compatibility */
+  .site-header {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .header__dropdown-menu {
+    min-width: 200px;
+  }
+  
+  .header__dropdown-menu a:hover {
+    background-color: rgba(251, 191, 36, 0.1);
+  }
+  
+  .header__menu-item.active {
+    color: #d97706;
+    font-weight: 600;
+  }
+  
+  /* Mobile menu styles */
+  @media (max-width: 1023px) {
+    .header__mobile-menu {
+      cursor: pointer;
+    }
+  }
+</style>
+
+<script>
+  // JavaScript cho dropdown và search toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    // Search toggle
+    const searchToggles = document.querySelectorAll('.header__search-toggle');
+    const searchBar = document.querySelector('.header__search-bar');
+    
+    searchToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        searchBar.classList.toggle('hidden');
+        if (!searchBar.classList.contains('hidden')) {
+          searchBar.querySelector('input[type="search"]').focus();
+        }
+      });
+    });
+    
+    // Close search bar when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.header__search-bar') && 
+          !event.target.closest('.header__search-toggle')) {
+        searchBar.classList.add('hidden');
+      }
+    });
+    
+    // Mobile menu toggle (cần tích hợp với mobile menu của Shopify)
+    const mobileMenuBtn = document.querySelector('.header__mobile-menu');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        // Shopify's mobile menu toggle logic here
+        document.body.classList.toggle('mobile-menu-open');
+      });
+    }
+    
+    // Handle dropdown accessibility
+    const dropdownToggles = document.querySelectorAll('.header__dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        if (window.innerWidth < 1024) {
+          e.preventDefault();
+          const dropdown = toggle.nextElementSibling;
+          dropdown.classList.toggle('hidden');
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', !expanded);
+        }
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.header__dropdown')) {
+        dropdownToggles.forEach(toggle => {
+          toggle.setAttribute('aria-expanded', 'false');
+          if (window.innerWidth < 1024) {
+            toggle.nextElementSibling.classList.add('hidden');
+          }
+        });
+      }
+    });
+  });
+</script>
